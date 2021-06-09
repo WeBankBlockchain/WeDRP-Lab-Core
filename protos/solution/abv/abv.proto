@@ -1,0 +1,96 @@
+// Copyright 2020 WeDPR Lab Project Authors. Licensed under Apache-2.0.
+
+syntax = "proto3";
+
+package com.webank.wedpr.abv.proto;
+option java_package = "com.webank.wedpr.abv.proto";
+option java_multiple_files = true;
+
+// Counter Secret value
+message CounterSecret {
+  bytes poll_secret_share = 1;
+}
+
+message CounterSystemParametersShareRequest {
+  string counter_id = 1;
+  bytes poll_point_share = 2;
+}
+
+message CounterSystemParametersStorage {
+  repeated CounterSystemParametersShareRequest counter_parameters_request = 1;
+}
+
+// Voter Secret value
+message VoterSecret {
+  bytes vote_secret = 1;
+}
+
+message RegistrationRequest {
+  RegistrationBlindingPoint weight_point = 1;
+}
+
+message RegistrationBlindingPoint {
+  bytes blinding_poll_point = 1;
+  bytes blinding_basepoint_g2 = 2;
+}
+
+message RegistrationResponse {
+  uint32 voter_weight = 1;
+  Ballot ballot = 2;
+  bytes signature = 3;
+  Ballot zero_ballot = 4;
+}
+
+message Ballot {
+  bytes ciphertext1 = 1;
+  bytes ciphertext2 = 2;
+}
+
+message VoteChoice {
+  string candidate = 1;
+  uint32 value = 2;
+}
+
+message VoteChoices {
+  repeated VoteChoice choice = 1;
+}
+
+message CandidateBallot {
+  string candidate = 1;
+  Ballot ballot = 2;
+}
+
+message VoteStorage {
+  bytes signature = 1;
+  Ballot blank_ballot = 2;
+  Ballot rest_ballot = 3;
+  repeated CandidateBallot voted_ballot = 4;
+}
+
+message CandidateList {
+  repeated string candidate = 1;
+}
+
+message SystemParametersStorage {
+  bytes poll_point = 1;
+  CandidateList candidates = 2;
+}
+
+message BallotProof {
+  bytes format_proof = 1;
+  bytes either_equality_proof = 2;
+}
+
+message CandidateBallotProofPair {
+  string candidate = 1;
+  BallotProof value = 2;
+}
+
+// Do not use Map, cause unordered in blockchain
+message VoteRequest {
+  VoteStorage vote = 1;
+  repeated CandidateBallotProofPair ballot_proof = 2;
+  bytes range_proof = 3;
+  bytes sum_balance_proof = 4;
+}
+

@@ -1,6 +1,6 @@
 [package]
 name = "wedpr_s_protos"
-version = "1.4.0"
+version = "1.5.0"
 authors = [ "WeDPR <wedpr@webank.com>" ]
 edition = "2018"
 license = "Apache-2.0"

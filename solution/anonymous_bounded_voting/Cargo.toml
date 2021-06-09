@@ -1,0 +1,21 @@
+[package]
+name = "wedpr_s_anonymous_bounded_voting"
+version = "1.5.0"
+authors = [ "WeDPR <wedpr@webank.com>" ]
+edition = "2018"
+license = "Apache-2.0"
+description = "Library of WeDPR protobuf definitions and their generated code."
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+wedpr_l_utils = "1.1.0"
+wedpr_l_crypto_zkp_discrete_logarithm_proof = { git = "https://github.com/WeBankBlockchain/WeDPR-Lab-Crypto.git", branch = "release-1.2.0" }
+wedpr_s_protos = { path = "../../protos"}
+wedpr_l_protos = { git = "https://github.com/WeBankBlockchain/WeDPR-Lab-Crypto.git", branch = "release-1.2.0", version = "1.1.1" }
+curve25519-dalek = { version = "1", features = [ "serde" ] }
+wedpr_l_crypto_zkp_utils = { git = "https://github.com/WeBankBlockchain/WeDPR-Lab-Crypto.git", branch = "release-1.2.0" }
+wedpr_l_crypto_signature_secp256k1 = { git = "https://github.com/WeBankBlockchain/WeDPR-Lab-Crypto.git", branch = "release-1.2.0" }
+lazy_static = "1.4.0"
+wedpr_l_crypto_hash_keccak256 = { git = "https://github.com/WeBankBlockchain/WeDPR-Lab-Crypto.git", branch = "release-1.2.0" }
+wedpr_l_crypto_zkp_range_proof = { git = "https://github.com/WeBankBlockchain/WeDPR-Lab-Crypto.git", branch = "release-1.2.0" }

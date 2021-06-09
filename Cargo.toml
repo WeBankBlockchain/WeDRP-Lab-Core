@@ -12,4 +12,5 @@ members = [
     "solution/key_tool_box/hierarchical_deterministic_key",
     "solution/selective_certificate_disclosure",
     "solution/verifiable_confidential_ledger",
+    "solution/anonymous_bounded_voting",
 ]

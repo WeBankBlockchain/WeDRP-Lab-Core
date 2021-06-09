@@ -27,7 +27,7 @@ fn generate_proto_for_all() {
         .includes(&["."])
         // List all used proto files here.
         // You can remove any proto files that are not used by your project.
-        .inputs(&["solution/vcl/vcl.proto","solution/scd/scd.proto","solution/ktb/hdk.proto"])
+        .inputs(&["solution/vcl/vcl.proto","solution/scd/scd.proto","solution/ktb/hdk.proto", "solution/abv/abv.proto"])
         .customize(Customize {
             ..Default::default()
         })
